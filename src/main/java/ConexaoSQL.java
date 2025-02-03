@@ -199,7 +199,7 @@ public class ConexaoSQL {
                 "FROM Clinica_Servico s, Clinica_Nota_Fiscal n\n" +
                 "WHERE s.nomePaciente LIKE ? AND s.idServico = n.Servico_idServico";
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
-            System.out.print("Nome do cliente a procurar: ");
+            System.out.print("Nome do paciente a procurar: ");
             String nomeCliente = scanner.nextLine();
             pstmt.setString(1, "%" + nomeCliente + "%");
 
@@ -213,7 +213,7 @@ public class ConexaoSQL {
                     encontrou = true;
                 }
                 if (!encontrou) {
-                    System.out.println("Nome do cliente não encontrado.");
+                    System.out.println("Nome do paciente não encontrado.");
                 }
             }
         } catch (SQLException e) {
